@@ -3,11 +3,11 @@
 #include "BD37033FV.h"
 
 BD37033FV::BD37033FV(){
-    Wire.begin();
+	Wire.begin();
 }
 
 void BD37033FV::setInitial(){
-             int initial = 0b10100100;
+             int initial = 0b00100100;
            writeWire(INITIAL_SETUP, initial); 
    }
 
@@ -78,44 +78,50 @@ void BD37033FV::setIn_gain(int in_gain, int mute){
    }
 
 void BD37033FV::setVol(int vol){
-            if(vol <= 0){vol = abs(vol) + 128;}
             if(vol > 0){vol = 128 - vol;}
+            if(vol <= 0){vol = abs(vol) + 128;}
             writeWire(VOLUME_GAIN, vol); 
    }
 
 void BD37033FV::setFront_1(int front_1){
-            if(front_1 <= 0){front_1 = abs(front_1) + 128;}
             if(front_1 > 0){front_1 = 128 - front_1;}
+            if(front_1 <= 0){front_1 = abs(front_1) + 128;}
+            
             writeWire(FADER_1_FRONT, front_1); 
    }
 
 void BD37033FV::setFront_2(int front_2){
-            if(front_2 <= 0){front_2 = abs(front_2) + 128;}
             if(front_2 > 0){front_2 = 128 - front_2;}
+            if(front_2 <= 0){front_2 = abs(front_2) + 128;}
+            
             writeWire(FADER_2_FRONT, front_2); 
    }
 
 void BD37033FV::setRear_1(int rear_1){
-            if(rear_1 <= 0){rear_1 = abs(rear_1) + 128;}
             if(rear_1 > 0){rear_1 = 128 - rear_1;}
+            if(rear_1 <= 0){rear_1 = abs(rear_1) + 128;}
+            
             writeWire(FADER_1_REAR, rear_1); 
    }
 
 void BD37033FV::setRear_2(int rear_2){
-            if(rear_2 <= 0){rear_2 = abs(rear_2) + 128;}
             if(rear_2 > 0){rear_2 = 128 - rear_2;}
+            if(rear_2 <= 0){rear_2 = abs(rear_2) + 128;}
+            
             writeWire(FADER_2_REAR, rear_2); 
    }
 
 void BD37033FV::setSub1(int sub1){
-            if(sub1 <= 0){sub1 = abs(sub1) + 128;}
             if(sub1 > 0){sub1 = 128 - sub1;}
+            if(sub1 <= 0){sub1 = abs(sub1) + 128;}
+            
             writeWire(FADER_SUB_1, sub1); 
    }
 
 void BD37033FV::setSub2(int sub2){
-            if(sub2 <= 0){sub2 = abs(sub2) + 128;}
             if(sub2 > 0){sub2 = 128 - sub2;}
+            if(sub2 <= 0){sub2 = abs(sub2) + 128;}
+            
             writeWire(FADER_SUB_2, sub2); 
    }
 
