@@ -55,7 +55,7 @@ void BD37033FV::setLoud_f(int mix_in, int loud_f, int mix_ch1, int mix_ch2){
              case 0: mix_ch2 = 0b00000000;break;  
              case 1: mix_ch2 = 0b00000100;break; 
    }     
-             int loun_sum = 0b00000001 + loud_f + mix_ch1 + mix_ch2;
+             int loun_sum = 0b00000001 + loud_f + mix_ch1 + mix_ch2 + mix_in;
              writeWire(MIXING_SETUP, loun_sum); 
    }
 
